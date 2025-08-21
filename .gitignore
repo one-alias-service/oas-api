@@ -1,0 +1,6 @@
+.env
+.DS_Store
+config.json
+buil/
+nodemon.json
+test.json

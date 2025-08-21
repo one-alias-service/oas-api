@@ -1,0 +1,17 @@
+services:
+  alias-api-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alias-api
+    env_file: .env
+    networks:
+      - oas
+      - npm-network
+    restart: unless-stopped
+
+networks:
+  oas:
+    external: true
+  npm-network:
+    external: true
