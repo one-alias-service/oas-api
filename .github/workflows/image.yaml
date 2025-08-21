@@ -47,5 +47,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
           secrets: |
-            "github_token=${{ secrets.GITHUB_TOKEN }}"
-            "config_json_string=${{secrets.CONFIG_JSON_STRING}}"
+            config_json_string=${{ secrets.CONFIG_JSON_STRING }}
+          # Enable BuildKit for secrets support
+          builder: ${{ steps.buildx.outputs.name }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
